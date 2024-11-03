@@ -1,6 +1,6 @@
 use lsp_types::{Position, Range, TextDocumentContentChangeEvent};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FullTextDocument {
     language_id: String,
     version: i32,
