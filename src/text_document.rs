@@ -206,7 +206,7 @@ impl FullTextDocument {
         })
     }
 
-    fn get_line(&self, line: u32) -> Option<&str> {
+    pub fn get_line(&self, line: u32) -> Option<&str> {
         self.get_line_and_offset(line).map(|(line, _)| line)
     }
 
