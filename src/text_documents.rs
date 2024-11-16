@@ -8,7 +8,7 @@ use lsp_types::{
 use serde_json::Value;
 use std::collections::BTreeMap;
 
-#[derive(Default, Debug, PartialEq, Eq)]
+#[derive(Default, Debug, PartialEq, Eq, Clone)]
 pub struct TextDocuments(BTreeMap<Url, FullTextDocument>);
 
 impl TextDocuments {
