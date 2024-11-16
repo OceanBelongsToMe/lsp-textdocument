@@ -26,7 +26,9 @@ impl TextDocuments {
     pub fn new() -> Self {
         Self(BTreeMap::new())
     }
-
+    pub fn tree_mut(&mut self) -> &mut BTreeMap<Url, FullTextDocument> {
+        &mut self.0
+    }
     pub fn documents(&self) -> &BTreeMap<Url, FullTextDocument> {
         &self.0
     }
