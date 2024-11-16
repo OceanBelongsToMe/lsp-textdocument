@@ -8,9 +8,13 @@ use lsp_types::{
 use serde_json::Value;
 use std::collections::BTreeMap;
 
-#[derive(Default, Debug, PartialEq, Eq, Clone)]
+#[derive(Default, Debug, PartialEq, Eq)]
 pub struct TextDocuments(BTreeMap<Url, FullTextDocument>);
-
+impl Clone for TextDocuments {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 impl TextDocuments {
     /// Create a text documents
     ///
