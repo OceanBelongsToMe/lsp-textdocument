@@ -191,7 +191,9 @@ impl FullTextDocument {
             Some(Range { start, end }) => {
                 let start = self.offset_at(start);
                 let end = self.offset_at(end).min(self.content_len());
-                self.content.get(start as usize..end as usize).unwrap()
+                self.content
+                    .get(start as usize..end as usize)
+                    .unwrap_or_default()
             }
             None => &self.content,
         }
