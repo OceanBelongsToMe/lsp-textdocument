@@ -134,11 +134,9 @@ impl FullTextDocument {
                 0,
             )
         } else if self.content.as_bytes().get(offset as usize - 1) == Some(&b'\n') {
-            let line = (self.line_count() - 1).min(position.line) as usize;
-            let next_line = (self.line_count() - 1).min(position.line + 1) as usize;
-            if self.line_offsets[line] == offset {
+            if self.line_offsets[position.line as usize] == offset {
                 (*position, offset)
-            } else if self.line_offsets[next_line] == offset {
+            } else if self.line_offsets[position.line as usize + 1] == offset {
                 (
                     Position {
                         line: position.line + 1,
